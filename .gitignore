@@ -75,3 +75,6 @@ WINDOWS_RUN_GUIDE.md
 # Local configuration
 config.local.js
 config.local.ts
+
+# api 파일
+SETUP_GUIDE.md
