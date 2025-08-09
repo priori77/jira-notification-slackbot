@@ -77,4 +77,5 @@ config.local.js
 config.local.ts
 
 # api 파일
+SETUP_GUIDE.*
 SETUP_GUIDE.md
