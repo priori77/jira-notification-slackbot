@@ -14,6 +14,7 @@ export class SlackService {
     this.client = new WebClient(SLACK_BOT_TOKEN);
   }
 
+  // 이메일로 Slack 사용자 조회
   async getUserByEmail(email: string): Promise<SlackUser | null> {
     try {
       const result = await this.client.users.lookupByEmail({ email });
@@ -24,6 +25,7 @@ export class SlackService {
     }
   }
 
+  // 1:1 DM 채널로 메시지 전송
   async sendDirectMessage(userId: string, message: string): Promise<void> {
     try {
       const result = await this.client.conversations.open({ users: userId });

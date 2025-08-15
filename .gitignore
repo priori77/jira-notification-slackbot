@@ -79,3 +79,5 @@ config.local.ts
 # api 파일
 SETUP_GUIDE.*
 SETUP_GUIDE.md
+VERCEL_DEPLOY_GUIDE.md
+.gitignore

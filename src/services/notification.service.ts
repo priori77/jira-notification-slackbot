@@ -14,6 +14,8 @@ export class NotificationService {
     this.storage = new Storage();
   }
 
+
+  // QA 상태 이슈 조회 및 알림 전송
   async checkAndNotifyQAIssues(): Promise<void> {
     try {
       console.log('Checking for QA issues...');
@@ -32,12 +34,14 @@ export class NotificationService {
     }
   }
 
+  // 담당자 없을 시 스킵
   private async processIssue(issue: JiraIssue): Promise<void> {
     if (!issue.fields.assignee) {
       console.log(`Issue ${issue.key} has no assignee, skipping`);
       return;
     }
 
+    // Storage에 저장된 데이터를 기반으로 신규 이슈인지 새로 업데이트된 이슈인지 판별 
     const assigneeEmail = issue.fields.assignee.emailAddress;
     const isNewOrUpdated = await this.storage.isNewOrUpdatedIssue(
       issue.key,
